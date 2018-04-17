@@ -17,7 +17,7 @@ agent any
   {
   steps
   {
-  bat 'start cmd.exe /c C:\Users\Administrator\Downloads\apache-tomcat-8.5.30-windows-x64\apache-tomcat-8.5.30\bin\startup.bat'
+  bat 'cd cmd.exe /c C:\Users\Administrator\Downloads\apache-tomcat-8.5.30-windows-x64\apache-tomcat-8.5.30\bin\startup.bat'
   }
   post{
   success{
