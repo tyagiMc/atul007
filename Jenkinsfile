@@ -17,7 +17,7 @@ agent any
   {
   steps
   {
-  bat 'cd NumberGenerator $ mvn install'
+  bat 'cd target'
   }
   post{
   success{
