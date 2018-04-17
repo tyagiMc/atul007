@@ -17,7 +17,7 @@ agent any
   {
   steps
   {
-  bat 'cd Jenkinsfile'
+  bat 'Jenkinsfile'
   }
   post{
   success{
