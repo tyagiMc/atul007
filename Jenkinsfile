@@ -7,7 +7,7 @@ pipeline{
       {
         bat 'mkdir archive'
         bat 'echo test  > archive/test.txt'
-        zip zipfile: 'test.zip' , archive: false, dir: 'archive'
+        zip zipFile: 'test.zip' , archive: false, dir: 'archive'
         archiveArtifacts artifacts: 'test.zip', fingerprint: true
       }
     }
