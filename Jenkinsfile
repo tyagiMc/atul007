@@ -1,33 +1,18 @@
 pipeline{
-agent any
-  tools{
-  maven 'maven3.5.3'
-  jdk 'java8'
-  }
+  agent any
   stages{
-  stage('Initialize'){
-  steps{
-  bat '''
-  echo "PATH = $PATH$"
-  echo "M2_HOME = $M2_HOME"
-  '''
+    stage('push artifacts')
+    {
+      steps
+      {
+        bat 'mkdir archive'
+        bat 'echo test  > archive/test.txt'
+        zip zipfile: 'test.zip' , archive: false, dir: 'archive'
+        archiveArtifacts artifacts: 'test.zip', fingerprint: true
+      }
+    }
+    }
   }
-  }
-  stage('Build')
-  {
-  steps
-  {
-  bat 'cd cmd.exe /c C:\Users\Administrator\Downloads\apache-tomcat-8.5.30-windows-x64\apache-tomcat-8.5.30\bin\startup.bat'
-  }
-  post{
-  success{
-       junit 'NumberGenerator/target/surefire-reports/*.xml'
-       }
-       }
-       
-       }
-       }
-       }
   
   
   
